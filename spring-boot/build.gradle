@@ -1,8 +1,6 @@
 // https://spring.io/guides/gs/spring-boot/
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -14,7 +12,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.2.RELEASE")
     }
 }
 
@@ -24,8 +22,11 @@ bootJar {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit")
+    compile(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-actuator",
+    )
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 repositories {
